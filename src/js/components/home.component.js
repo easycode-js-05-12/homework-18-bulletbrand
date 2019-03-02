@@ -19,6 +19,7 @@ export class HomeComponent {
    * @returns {string} tamplate
    */
   render() {
+    console.log(this._homeRout)
     return `
       <style>${this.style()}</style>
   
@@ -56,6 +57,20 @@ export class HomeComponent {
     </nav>
     <section class ="inner d-flex flex-column ng-star-inserted">
     <div class="inner-main d-flex align-items-center" style = "background-image: url(${this._homeRout.homeBackground});">
+      <div class="container d-flex justify-content-center justify-content-sm-start">
+        <div class="inner-content">
+        <h1>Most liked Person</h1>
+        <span class="d-block"> Be Most Wanted </span>
+          <p> ${this._homeRout.innerText}</p>
+          <p>Please join us and express your opinion by voting on the photos.</p>
+          <button class="btn btn-bg-gradient btn-xl btn-fs-lg d-flex ng-star-inserted">
+            <span>Join us</span>
+            <span class="chevrons-wrap"> 
+              >>
+            </span>
+          </button>
+        </div>
+      </div>
     </div>
 
    
@@ -79,54 +94,127 @@ export class HomeComponent {
 
   style() {
     return `
-      ul {
-        padding:0;
-      }
-        .inner-desc {
-          padding: 35px 0;
-          color: #fff;
-          background-color: #212121;
-        }  
-        .inner-desc li::before {
-          content: "";
-          display: inline-flex;
-          margin: 0 20px;
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background-color: #fff;
-        }
-        .inner-desc li:first-child:before  {
-          
-          display: none;
-         
-        }
-
-        .inner{
-          font-size: 18px;
-          font-family: robotolight,sans-serif;
-          margin-bottom: 20px;
-        }
-        #main .inner {
-          height: calc(100vh - 119px);
-          min-height: 786px;
-      }
-      .inner-main {
-        min-height: 550px;
-        width:auto;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        
+    ul {
+      padding: 0;
     }
+    
+    .inner-desc {
+      padding: 35px 0;
+      color: #fff;
+      background-color: #212121;
+    }
+    
+    .inner-desc li::before {
+      content: "";
+      display: inline-flex;
+      margin: 0 20px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    
+    .inner-desc li:first-child:before {
+    
+      display: none;
+    
+    }
+    
+    .inner {
+      font-size: 18px;
+      font-family: robotolight, sans-serif;
+      margin-bottom: 20px;
+    }
+    
+    #main .inner {
+      height: calc(100vh - 119px);
+      min-height: 786px;
+    }
+    
+    .inner-main {
+      min-height: 550px;
+      width: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    
+    }
+    
     .nav-item {
       padding: 10px 15px 10px;
     }
+    
     .nav-item:hover {
-     border-bottom:1px solid white
+      border-bottom: 1px solid white
     }
+    
     .active {
-      border:1px solid white
+      border: 1px solid white
+    }
+    
+    .inner-content {
+      width: 100%;
+      max-width: 498px;
+      padding: 42px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, .65);
+    }
+    
+    .inner-content h1 {
+      font-size: 65px;
+      font-family: robotomedium, sans-serif;
+      margin-bottom: 22px;
+    }
+    
+    .inner-content>span {
+      font-size: 60px;
+      font-family: mr_de_havilandregular;
+      font-weight: 700;
+      word-spacing: .2em;
+      margin-bottom: 35px;
+      color: #e12ebc;
+    }
+    
+    .btn>:first-child::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -140%;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 100%);
+      -webkit-transform: skewX(-36deg);
+      transform: skewX(-36deg);
+    }
+    
+    .btn.btn-bg-gradient {
+      color: #fff;
+      background: linear-gradient(to right, #7303c0 0, #ec38bc 76%, #fa66cb 100%);
+    }
+    
+    .btn.btn {
+      padding: 20px 40px;
+      font-size: 18px;
+    }
+    
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 15px 35px;
+      font-size: 16px;
+      font-family: robotobold, sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      border-radius: 500px;
+      z-index: 0;
+      overflow: hidden;
+    }
+    
+    .btn .chevrons-wrap {
+      margin-left: 5px;
+      padding-top: 1px;
+      font-size: 16px;
+      word-spacing: -6px;
     }
       `;
   }
